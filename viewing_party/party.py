@@ -19,12 +19,6 @@ def add_to_watchlist(user_data,movie):
     return user_data
 
 def watch_movie(user_data,title):
-#     - if title in watchlist
-#     - remove movie from watchlist
-#     - add movie to watched
-#     - return user_data
-# - else:
-#     - return user_data
     wacthlist = user_data["watchlist"]
 
     for movie in wacthlist:
