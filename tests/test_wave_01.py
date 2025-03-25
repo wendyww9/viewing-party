@@ -154,11 +154,18 @@ def test_moves_movie_from_watchlist_to_empty_watched():
 
     # Act
     updated_data = watch_movie(janes_data, MOVIE_TITLE_1)
-
+    expected = {
+        "watchlist": [],
+        "watched": [{
+            "title": MOVIE_TITLE_1,
+            "genre": GENRE_1,
+            "rating": RATING_1
+        }]
+    }
     # Assert
     assert len(updated_data["watchlist"]) == 0
     assert len(updated_data["watched"]) == 1
-    
+    assert updated_data == expected
     raise Exception("Test needs to be completed.")
     # *******************************************************************************************
     # ****** Add assertions here to test that the correct movie was added to "watched" **********
@@ -178,7 +185,10 @@ def test_moves_movie_from_watchlist_to_watched():
 
     # Act
     updated_data = watch_movie(janes_data, movie_to_watch["title"])
-
+    expected = {
+        "watchlist": [FANTASY_1],
+        "watched": [FANTASY_2, movie_to_watch]
+    }
     # Assert
     assert len(updated_data["watchlist"]) == 1
     assert len(updated_data["watched"]) == 2
