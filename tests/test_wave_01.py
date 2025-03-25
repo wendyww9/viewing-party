@@ -151,9 +151,6 @@ def test_moves_movie_from_watchlist_to_empty_watched():
         }],
         "watched": []
     }
-
-    # Act
-    updated_data = watch_movie(janes_data, MOVIE_TITLE_1)
     expected_result = {
         "watchlist": [],
         "watched": [{
@@ -163,9 +160,13 @@ def test_moves_movie_from_watchlist_to_empty_watched():
         }]
     }
 
+    # Act
+    updated_data = watch_movie(janes_data, MOVIE_TITLE_1)
+
     # Assert
     assert len(updated_data["watchlist"]) == 0
     assert len(updated_data["watched"]) == 1
+    assert updated_data == expected_result
     
     #raise Exception("Test needs to be completed.")
     # *******************************************************************************************
