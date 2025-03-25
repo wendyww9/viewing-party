@@ -184,6 +184,10 @@ def test_moves_movie_from_watchlist_to_watched():
         ],
         "watched": [FANTASY_2]
     }
+    expected_result = {
+        "watchlist": [FANTASY_1],
+        "watched": [FANTASY_2, movie_to_watch]
+    }
 
     # Act
     updated_data = watch_movie(janes_data, movie_to_watch["title"])
