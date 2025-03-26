@@ -102,7 +102,19 @@ def get_available_recs(user_data):
     recommendations = [movie for movie in friends_unique_watched if movie["host"] in user_subscriptions]
 
     return recommendations
+
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
+def get_new_rec_by_genre(user_data):
+    friends_unique_watched = get_friends_unique_watched(user_data)
+    common_genre = get_most_watched_genre(user_data)
+
+    recommendations = [movie for movie in friends_unique_watched if movie["genre"] == common_genre]
+
+    return recommendations
+
+
+
+    
 
